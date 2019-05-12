@@ -11,7 +11,9 @@
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="lib/css/atom-one-dark.css">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -25,8 +27,82 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-background-color="#ff4d4d">
+					<h1 style="color: white; text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15); }
+">Reveal.js</h1>
+					<div id="typed-strings">
+							<p>Progg en presentasjon!</p>
+							<p>Av Annie Aasen</p>
+					</div>
+					<span id="typed" style="font-family: 'Courier New'; color: black;"></span>
+				</section>
+				<section data-background-image="img/revealjs-github.png" data-transition="fade-out">
+				</section>
+				<section data-background-video="img/video.mov"></section>
+				<!-- ny video: bruk litt tid i starten, skriv link til presentasjonen, endre til mobilvisning-->
+
+				<section data-external="content/snarveier.html" data-background="img/gray_stripes.png" data-background-repeat="repeat" data-background-size="100px">
+				</section>
+
+				<section data-external="content/kodeeksempel.html" data-background-color="#ffffff" data-transition="zoom-in"> </section>
+				<section data-external="content/temaeksempler.html" data-background-color="#ffffff" > </section>
+				<section data-background-color="#ffffff">
+				  <pre><code class="html" style="background: #ffffff; color: #333333;">&lt;section data-markdown>
+  &lt;textarea data-template>
+    ## Støtte for markdown
+
+    Enda lettere å komme raskt i gang! :)
+
+    Se også [reveal-md](https://github.com/webpro/reveal-md)
+  &lt;/textarea>
+&lt;/section></code></pre>
+				</section>
+
+				<section data-background-color="#ffffff" data-background-iframe="https://iterastorage.z6.web.core.windows.net/" data-background-interactive>
+				</section>
+
+				<section data-background-color="#ffffff">
+					<h2 style="font-family: 'Courier New'">API</h2>
+					<pre><code class="js">Reveal.slide( 1 );
+Reveal.next();
+Reveal.prev();
+
+var state = Reveal.getState();
+
+Reveal.toggleOverview();
+Reveal.getProgress();
+Reveal.getSlideNodes();
+
+getRevealElement();
+
+Reveal.addEventListener( 'slidechanged', function( event ) {
+	// Do something
+} );</code></pre>
+				</section>
+
+				<section tagcloud data-background-color="#ffffff">
+					animations
+					charts
+					spreadsheets
+					math formulas
+					accessibility
+					tagcloud
+					code editor
+					terminal
+					google analytics
+					quizzes
+					text-to-speech
+					maps
+					voice-navigation
+					audio
+					chalkboard
+				</section>
+
+				<section data-background-color="#ff4d4d">
+					<p style="color: white;">Takk for meg! 😊</p>
+					<span style="color: white; font-size: 30px;">Presentasjon på <a style="color: white; text-decoration: underline;" href="https://yvn.no/reveal/#/">yvn.no/reveal</a></br>
+					Kode på <a style="color: white; text-decoration: underline;" href="https://github.com/anniea/">github.com/anniea/</a></span>
+				</section>
 			</div>
 		</div>
 
@@ -41,7 +117,10 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
+					{ src: 'plugin/tagcloud/tagcloud.js', async: true},
+					{ src: 'plugin/typed/typed.js', async: false , callback: function() { callTypedJs(); }}
 				]
 			});
 		</script>
